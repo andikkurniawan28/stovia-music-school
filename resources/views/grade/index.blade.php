@@ -52,7 +52,7 @@
     <div class="modal-dialog" sample="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="createLabel">Create {{ ucfirst('grade') }}</h5>
+                <h5 class="modal-title" id="createLabel">Tambah {{ ucfirst('grade') }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
@@ -62,7 +62,7 @@
                 @method('POST')
 
                 @include('components.input',[
-                    'label' => 'Name',
+                    'label' => 'Nama',
                     'name' => 'name',
                     'type' => 'text',
                     'value' => '',
@@ -148,7 +148,7 @@
                 @method('PUT')
 
                 @include('components.input',[
-                    'label' => 'Name',
+                    'label' => 'Nama',
                     'name' => 'name',
                     'type' => 'text',
                     'value' => $grade->name,

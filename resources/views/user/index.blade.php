@@ -54,7 +54,7 @@
     <div class="modal-dialog" sample="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="createLabel">Create {{ ucfirst('user') }}</h5>
+                <h5 class="modal-title" id="createLabel">Tambah {{ ucfirst('user') }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
@@ -64,7 +64,7 @@
                 @method('POST')
 
                 @include('components.input',[
-                    'label' => 'Name',
+                    'label' => 'Nama Lengkap',
                     'name' => 'name',
                     'type' => 'text',
                     'value' => '',
@@ -88,7 +88,7 @@
                 ])
 
                 <div class="form-group row">
-                    <label for="role_id" class="col-sm-4 col-form-label">Hak akses</label>
+                    <label for="role_id" class="col-sm-4 col-form-label">Role</label>
                     <div class="col-sm-8">
                         <select class="form-control" name="role_id">
                             @foreach ($roles as $role)
@@ -211,7 +211,7 @@
                 @method('PUT')
 
                 @include('components.input',[
-                    'label' => 'Name',
+                    'label' => 'Nama Lengkap',
                     'name' => 'name',
                     'type' => 'text',
                     'value' => $user->name,
@@ -294,7 +294,7 @@
                 <p>Apa Anda yakin ?</p>
 
                 @include('components.input',[
-                    'label' => 'Nama',
+                    'label' => 'Nama Lengkap',
                     'name' => 'name',
                     'type' => 'text',
                     'value' => $user->name,
