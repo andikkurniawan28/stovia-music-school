@@ -11,10 +11,11 @@
 
         @include('template.sidebar.list', [ 'route' => 'home', 'icon' => 'home', 'title' => 'home', ])
         @include('template.sidebar.list', [ 'route' => 'users.index', 'icon' => 'user', 'title' => 'user', ])
-        @include('template.sidebar.list', [ 'route' => 'roles', 'icon' => 'door-open', 'title' => 'role', ])
-        @include('template.sidebar.list', [ 'route' => 'instruments.index', 'icon' => 'guitar', 'title' => 'instrument', ])
+        @include('template.sidebar.list', [ 'route' => 'roles', 'icon' => 'shield', 'title' => 'role', ])
+        @include('template.sidebar.list', [ 'route' => 'instruments.index', 'icon' => 'guitar', 'title' => 'alat Musik', ])
         @include('template.sidebar.list', [ 'route' => 'grades.index', 'icon' => 'graduation-cap', 'title' => 'grade', ])
         @include('template.sidebar.list', [ 'route' => 'courses.index', 'icon' => 'star', 'title' => 'kursus', ])
+        @include('template.sidebar.list', [ 'route' => 'classrooms.index', 'icon' => 'door-open', 'title' => 'ruang Kelas', ])
         @include('template.sidebar.list', [ 'route' => 'logs', 'icon' => 'history', 'title' => 'log', ])
 
     <hr class="sidebar-divider">

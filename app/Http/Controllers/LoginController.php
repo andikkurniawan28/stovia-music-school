@@ -16,7 +16,7 @@ class LoginController extends Controller
         if(Auth::attempt(['username' => $request->username, 'password' => $request->password, 'active' => 1]))
         {
             $request->session()->regenerate();
-            Log::writeLog('Authentication', 'User is logged in', Auth()->user()->name);
+            Log::writeLog('Authentikasi', 'User is logged in', Auth()->user()->name);
             return redirect()->intended();
         }
         else {

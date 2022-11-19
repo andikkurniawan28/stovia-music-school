@@ -9,6 +9,7 @@ use App\Http\Controllers\GradeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\InstrumentController;
 
 Route::get('/', HomeController::class)->name('home')->middleware('auth');
@@ -19,6 +20,7 @@ Route::resource('/users', UserController::class)->middleware('auth');
 Route::resource('/instruments', InstrumentController::class)->middleware('auth');
 Route::resource('/grades', GradeController::class)->middleware('auth');
 Route::resource('/courses', CourseController::class)->middleware('auth');
+Route::resource('/classrooms', ClassroomController::class)->middleware('auth');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/loginAttempt', [LoginController::class, 'loginAttempt'])->name('loginAttempt');

@@ -7,7 +7,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h5 class="m-0 font-weight-bold text-primary">{{ ucfirst('alat Musik') }}</h5>
+            <h5 class="m-0 font-weight-bold text-primary">{{ ucfirst('ruang Kelas') }}</h5>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -20,15 +20,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($instruments as $instrument)
+                        @foreach ($classrooms as $classroom)
                         <tr>
-                            <td>{{ $instrument->id }}</td>
-                            <td><a href="#" data-toggle="modal" data-target="#show{{ $instrument->id }}">{{ $instrument->name }}</a></td>
+                            <td>{{ $classroom->id }}</td>
+                            <td><a href="#" data-toggle="modal" data-target="#show{{ $classroom->id }}">{{ $classroom->name }}</a></td>
                             <td>
-                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#edit{{ $instrument->id }}">
+                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#edit{{ $classroom->id }}">
                                     Edit
                                 </button>
-                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete{{ $instrument->id }}">
+                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete{{ $classroom->id }}">
                                     Hapus
                                 </button>
                             </td>
@@ -40,7 +40,7 @@
         </div>
         <div class="card-footer">
             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#create">
-                Tambah {{ ucfirst('alat Musik') }}
+                Tambah {{ ucfirst('ruang Kelas') }}
             </button>
         </div>
     </div>
@@ -52,12 +52,12 @@
     <div class="modal-dialog" sample="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="createLabel">Tambah {{ ucfirst('alat Musik') }}</h5>
+                <h5 class="modal-title" id="createLabel">Tambah {{ ucfirst('ruang Kelas') }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
 
-                <form method="POST" action="{{ route('instruments.store') }}" class="text-dark">
+                <form method="POST" action="{{ route('classrooms.store') }}" class="text-dark">
                 @csrf
                 @method('POST')
 
@@ -80,12 +80,12 @@
     </div>
 </div>
 
-@foreach($instruments as $instrument)
-<div class="modal fade" id="show{{ $instrument->id }}" tabindex="-1" instrument="dialog" aria-labelledby="show{{ $instrument->id }}Label" aria-hidden="true">
-    <div class="modal-dialog" instrument="document">
+@foreach($classrooms as $classroom)
+<div class="modal fade" id="show{{ $classroom->id }}" tabindex="-1" classroom="dialog" aria-labelledby="show{{ $classroom->id }}Label" aria-hidden="true">
+    <div class="modal-dialog" classroom="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="show{{ $instrument->id }}Label">Informasi {{ ucfirst('alat Musik') }}</h5>
+                <h5 class="modal-title" id="show{{ $classroom->id }}Label">Informasi {{ ucfirst('ruang Kelas') }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
@@ -96,7 +96,7 @@
                     'label' => 'Nama',
                     'name' => 'name',
                     'type' => 'text',
-                    'value' => $instrument->name,
+                    'value' => $classroom->name,
                     'modifier' => 'readonly',
                 ])
 
@@ -104,7 +104,7 @@
                     'label' => 'Admin',
                     'name' => 'admin',
                     'type' => 'text',
-                    'value' => $instrument->admin,
+                    'value' => $classroom->admin,
                     'modifier' => 'readonly',
                 ])
 
@@ -112,7 +112,7 @@
                     'label' => 'Created',
                     'name' => 'created_at',
                     'type' => 'text',
-                    'value' => $instrument->created_at,
+                    'value' => $classroom->created_at,
                     'modifier' => 'readonly',
                 ])
 
@@ -120,7 +120,7 @@
                     'label' => 'Updated',
                     'name' => 'updated_at',
                     'type' => 'text',
-                    'value' => $instrument->updated_at,
+                    'value' => $classroom->updated_at,
                     'modifier' => 'readonly',
                 ])
 
@@ -133,17 +133,17 @@
 </div>
 @endforeach
 
-@foreach($instruments as $instrument)
-<div class="modal fade" id="edit{{ $instrument->id }}" tabindex="-1" instrument="dialog" aria-labelledby="edit{{ $instrument->id }}Label" aria-hidden="true">
-    <div class="modal-dialog" instrument="document">
+@foreach($classrooms as $classroom)
+<div class="modal fade" id="edit{{ $classroom->id }}" tabindex="-1" classroom="dialog" aria-labelledby="edit{{ $classroom->id }}Label" aria-hidden="true">
+    <div class="modal-dialog" classroom="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="edit{{ $instrument->id }}Label">Edit {{ ucfirst('alat Musik') }}</h5>
+                <h5 class="modal-title" id="edit{{ $classroom->id }}Label">Edit {{ ucfirst('ruang Kelas') }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
 
-                <form method="POST" action="{{ route('instruments.update', $instrument->id) }}" class="text-dark">
+                <form method="POST" action="{{ route('classrooms.update', $classroom->id) }}" class="text-dark">
                 @csrf
                 @method('PUT')
 
@@ -151,7 +151,7 @@
                     'label' => 'Nama',
                     'name' => 'name',
                     'type' => 'text',
-                    'value' => $instrument->name,
+                    'value' => $classroom->name,
                     'modifier' => 'required',
                 ])
 
@@ -168,16 +168,16 @@
 </div>
 @endforeach
 
-@foreach($instruments as $instrument)
-<div class="modal fade" id="delete{{ $instrument->id }}" tabindex="-1" instrument="dialog" aria-labelledby="delete{{ $instrument->id }}Label" aria-hidden="true">
-    <div class="modal-dialog" instrument="document">
+@foreach($classrooms as $classroom)
+<div class="modal fade" id="delete{{ $classroom->id }}" tabindex="-1" classroom="dialog" aria-labelledby="delete{{ $classroom->id }}Label" aria-hidden="true">
+    <div class="modal-dialog" classroom="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="delete{{ $instrument->id }}Label">Hapus {{ ucfirst('alat Musik') }}</h5>
+                <h5 class="modal-title" id="delete{{ $classroom->id }}Label">Hapus {{ ucfirst('ruang Kelas') }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-            <form method="POST" action="{{ route('instruments.destroy', $instrument->id) }}" class="text-dark">
+            <form method="POST" action="{{ route('classrooms.destroy', $classroom->id) }}" class="text-dark">
                 @csrf
                 @method('DELETE')
                 <p>Apa Anda yakin ?</p>
@@ -186,7 +186,7 @@
                     'label' => 'Nama',
                     'name' => 'name',
                     'type' => 'text',
-                    'value' => $instrument->name,
+                    'value' => $classroom->name,
                     'modifier' => 'readonly',
                 ])
 

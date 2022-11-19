@@ -26,7 +26,7 @@ class Course extends Model
     public static function handleRequestStore($request)
     {
         $course = self::create($request->all());
-        $log = Log::writeLog('Course', 'Menambahkan kursus baru '.$request->name, $request->admin);
+        $log = Log::writeLog('Kursus', 'Menambahkan kursus baru '.$request->name, $request->admin);
 
         if($course == true && $log == true) {
             return redirect()->back()->with('success', 'Kursus berhasil ditambahkan.');
@@ -45,7 +45,7 @@ class Course extends Model
             'price' => $request->price,
             'admin' => $request->admin,
         ]);
-        $log = Log::writeLog('Course', 'Merubah kursus '.$request->name, $request->admin);
+        $log = Log::writeLog('Kursus', 'Merubah kursus '.$request->name, $request->admin);
 
         if($course == true && $log == true) {
             return redirect()->back()->with('success', 'Kursus berhasil dirubah.');
@@ -58,7 +58,7 @@ class Course extends Model
     public static function handleRequestDelete($request, $id)
     {
         $course = self::whereId($id)->delete();
-        $log = Log::writeLog('Course', 'Menghapus kursus '.$request->name, $request->admin);
+        $log = Log::writeLog('Kursus', 'Menghapus kursus '.$request->name, $request->admin);
 
         if($course == true && $log == true) {
             return redirect()->back()->with('success', 'Kursus berhasil dihapus.');
