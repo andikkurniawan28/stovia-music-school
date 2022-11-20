@@ -6,6 +6,7 @@ use App\Models\Log;
 use App\Models\Course;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Classroom extends Model
 {
@@ -13,8 +14,13 @@ class Classroom extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'instrument_id' => 'array'
+    ];
+
     public static function handleRequestStore($request)
     {
+        $request->request->add(['instrument_id' => json_encode($request->instrument_id)]);
         $classroom = self::create($request->all());
         $log = Log::writeLog('Ruang Kelas', 'Menambahkan ruang kelas baru '.$request->name, $request->admin);
 

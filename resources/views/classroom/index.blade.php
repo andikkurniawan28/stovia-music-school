@@ -16,6 +16,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Nama</th>
+                            <th>Instrumen</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -24,6 +25,9 @@
                         <tr>
                             <td>{{ $classroom->id }}</td>
                             <td><a href="#" data-toggle="modal" data-target="#show{{ $classroom->id }}">{{ $classroom->name }}</a></td>
+                            <td>
+                                {{ var_dump(json_decode($classroom->instrument_id)) }}
+                            </td>
                             <td>
                                 <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#edit{{ $classroom->id }}">
                                     Edit
@@ -68,6 +72,20 @@
                     'value' => '',
                     'modifier' => 'required',
                 ])
+
+                @foreach($instruments as $instrument)
+                <div class="form-group row">
+                <label for="spot" class="col-sm-4 col-form-label">Instrumen</label>
+                    <div class="col-sm-8">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="instrument_id[]" id="{{ $instrument->id }}" value="{{ $instrument->id }}">
+                            <label class="form-check-label" for="{{ $instrument->id }}">
+                                <strong>{{ $instrument->name }}</strong>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
 
                 <input type="hidden" name="admin" value="{{ Auth()->user()->name }}">
 

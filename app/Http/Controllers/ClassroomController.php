@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Classroom;
+use App\Models\Instrument;
 use Illuminate\Http\Request;
 
 class ClassroomController extends Controller
@@ -10,11 +11,13 @@ class ClassroomController extends Controller
     public function index()
     {
         $classrooms = Classroom::all();
-        return view('classroom.index', compact('classrooms'));
+        $instruments = Instrument::all();
+        return view('classroom.index', compact('classrooms', 'instruments'));
     }
 
     public function store(Request $request)
     {
+        // return $request->all();
         return Classroom::handleRequestStore($request);
     }
 

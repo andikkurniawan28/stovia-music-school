@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Log;
 use App\Models\Course;
 use App\Models\Instrument;
 use Illuminate\Database\Eloquent\Model;
